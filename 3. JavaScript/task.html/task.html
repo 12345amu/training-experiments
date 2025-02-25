@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        .hidden {
+            display: none;
+        }
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .highlight:hover {
+            background-color: yellow;
+        }
+        .section {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Changing Tag Content
+    <div class="section">
+        <h1 id="heading">Original Heading</h1>
+        <button onclick="changeHeading()">Change Heading</button>
+    </div> -->
+
+    <!-- Adding/Removing Class Names -->
+    <!-- <div class="section">
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div> -->
+
+    <!-- Hiding and Showing Elements -->
+    <div class="section">
+        <p id="toggleParagraph">This is a paragraph.</p>
+        <button onclick="toggleParagraph()">Show/Hide Paragraph</button>
+    </div>
+
+    <!-- Changing Image Source Dynamically -->
+    <div class="section">
+        <img id="image" src="image1.jpg" width="200" height="200">
+        <button onclick="changeImage()">Change Image</button>
+    </div>
+
+    <!-- Mouse Hover Effects -->
+    <div class="section">
+        <button class="highlight">Hover Me</button>
+    </div>
+    
+    <!-- Form Input Handling -->
+    <div class="section">
+        <input type="text" id="userInput" placeholder="Type something...">
+        <button onclick="showInput()">Show Input</button>
+    </div>
+
+    <!-- Counting Button Clicks -->
+    <div class="section">
+        <p>Button Clicked: <span id="clickCount">0</span> times</p>
+        <button onclick="countClicks()">Click Me</button>
+    </div>
+
+    <!-- Keypress Event Handling -->
+    <div class="section">
+        <p>Pressed Key: <span id="keyPressed"></span></p>
+        <input type="text" onkeypress="showKey(event)">
+    </div>
+
+    <!-- Simple Stop/Start Button -->
+    <div class="section">
+        <p>Timer: <span id="timer">0</span> seconds</p>
+        <button onclick="toggleTimer()">Start/Stop Timer</button>
+    </div>
+
+    <script>
+        // function changeHeading() {
+        //     document.getElementById("heading").innerText = "New Heading";
+        // }
+
+        // function toggleDarkMode() {
+        //     document.body.classList.toggle("dark-mode");
+        // }
+
+        function toggleParagraph() {
+            const para = document.getElementById("toggleParagraph");
+            para.classList.toggle("hidden");
+        }
+
+        function changeImage() {
+            const img = document.getElementById("image");
+            img.src = img.src.includes("image1.jpg") ? "image2.jpg" : "image1.jpg";
+        }
+
+        function showInput() {
+            alert(document.getElementById("userInput").value);
+        }
+
+        let clickCount = 0;
+        function countClicks() {
+            clickCount++;
+            document.getElementById("clickCount").innerText = clickCount;
+        }
+
+        function showKey(event) {
+            document.getElementById("keyPressed").innerText = event.key;
+        }
+
+        let timer;
+        let seconds = 0;
+        function toggleTimer() {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            } else {
+                timer = setInterval(() => {
+                    seconds++;
+                    document.getElementById("timer").innerText = seconds;
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>

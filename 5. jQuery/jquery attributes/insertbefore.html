@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .insertBefore() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="addText">Insert Paragraph</button>
+    <div id="box">This is a box.</div>
+
+    <script>
+        $(document).ready(function() {
+            $('#addText').click(function() {
+                $('<p>New paragraph added before the box!</p>').insertBefore('#box');
+            });
+        });
+    </script>
+
+</body>
+</html>

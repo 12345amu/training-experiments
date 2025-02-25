@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+</head>
+<body>
+
+    <h2>Reverse a String</h2>
+    <input type="text" id="reverseInput" placeholder="Enter a string">
+    <button onclick="reverseString()">Reverse</button>
+    <p id="reverseResult"></p>
+
+    <h2>Palindrome Check</h2>
+    <input type="text" id="palindromeInput" placeholder="Enter a string">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="palindromeResult"></p>
+
+    <h2>Simple Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="calculator()">Calculate</button>
+    <p id="calcResult"></p>
+    <script>
+        // Function to reverse a string without built-in methods
+        function reverseString() {
+            let str = document.getElementById("reverseInput").value;
+            let reversed = "";
+            for (let i = str.length - 1; i >= 0; i--) {
+                reversed += str[i];
+            }
+            document.getElementById("reverseResult").innerText = "Reversed String: " + reversed;
+        }
+
+        // Function to check if a string is a palindrome
+        function checkPalindrome() {
+            let str = document.getElementById("palindromeInput").value;
+            let reversed = "";
+            for (let i = str.length - 1; i >= 0; i--) {
+                reversed += str[i];
+            }
+            let result = (str === reversed) ? "Yes, it's a Palindrome" : "No, it's not a Palindrome";
+            document.getElementById("palindromeResult").innerText = result;
+        }
+
+        // Function to perform calculator operations
+        function calculator() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operator = document.getElementById("operator").value;
+            let result;
+
+            switch (operator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+                    break;
+                default:
+                    result = "Invalid operator";
+            }
+
+            document.getElementById("calcResult").innerText = "Result: " + result;
+        }
+    </script>
+
+</body>
+</html>

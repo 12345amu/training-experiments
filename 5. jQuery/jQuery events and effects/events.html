@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Mouse & Keyboard Events Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h3>Click Event</h3>
+  <div id="clickDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Click on me
+  </div>
+
+  <h3>Double-click Event</h3>
+  <div id="dblclickDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Double-click on me
+  </div>
+
+  <h3>Mouse Enter Event</h3>
+  <div id="mouseenterDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Hover over me (Mouse Enter)
+  </div>
+
+  <h3>Mouse Leave Event</h3>
+  <div id="mouseleaveDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Hover away from me (Mouse Leave)
+  </div>
+
+  <h3>Mouse Up Event</h3>
+  <div id="mouseupDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Click and release mouse here (Mouse Up)
+  </div>
+
+  <h3>Right Click (Context Menu) Event</h3>
+  <div id="contextMenuDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Right-click on me (Context Menu)
+  </div>
+
+  <h3>Mouse Over Event</h3>
+  <div id="mouseoverDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Hover over me (Mouse Over)
+  </div>
+
+  <h3>Mouse Out Event</h3>
+  <div id="mouseoutDiv" style="width: 200px; height: 100px; border: 1px solid #000; padding: 10px;">
+    Hover away from me (Mouse Out)
+  </div>
+
+  <h3>Keyboard Events</h3>
+  <input type="text" id="keyInput" placeholder="Type something">
+  <p id="keyDownDisplay">Key Down: </p>
+  <p id="keyUpDisplay">Key Up: </p>
+
+  <script>
+    $(document).ready(function() {
+      // Click Event
+      $("#clickDiv").click(function() {
+        alert("Click event triggered!");
+      });
+
+      // Double-click Event
+      $("#dblclickDiv").dblclick(function() {
+        alert("Double-click event triggered!");
+      });
+
+      // Mouse Enter Event
+      $("#mouseenterDiv").mouseenter(function() {
+        $(this).css("background-color", "lightblue");
+        alert("Mouse enter event triggered!");
+      });
+
+      // Mouse Leave Event
+      $("#mouseleaveDiv").mouseleave(function() {
+        $(this).css("background-color", "");
+        alert("Mouse leave event triggered!");
+      });
+
+      // Mouse Up Event
+      $("#mouseupDiv").mouseup(function() {
+        alert("Mouse up event triggered!");
+      });
+
+      // Context Menu (Right Click) Event
+      $("#contextMenuDiv").contextmenu(function(event) {
+        event.preventDefault(); // Prevent default right-click menu
+        alert("Right-click event triggered (context menu opened)!");
+      });
+
+      // Mouse Over Event
+      $("#mouseoverDiv").mouseover(function() {
+        $(this).css("font-weight", "bold");
+        alert("Mouse over event triggered!");
+      });
+
+      // Mouse Out Event
+      $("#mouseoutDiv").mouseout(function() {
+        $(this).css("font-weight", "");
+        alert("Mouse out event triggered!");
+      });
+
+      // Key Down Event
+      $("#keyInput").keydown(function(event) {
+        $("#keyDownDisplay").text("Key Down: " + event.key);
+      });
+
+      // Key Up Event
+      $("#keyInput").keyup(function(event) {
+        $("#keyUpDisplay").text("Key Up: " + event.key);
+      });
+    });
+  </script>
+</body>
+</html>

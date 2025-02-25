@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pattern Programs</title>
+    
+</head>
+<body>
+    <h2>Pattern Programs</h2>
+    <input type="number" id="size" placeholder="Enter pattern size">
+    <button onclick="generatePatterns()">Generate Patterns</button>
+    <pre id="output"></pre>
+    <script>
+        function generatePatterns() {
+            let n = parseInt(document.getElementById("size").value);
+            let output = "";
+            
+            // Right-angled Triangle
+            output += "Right-angled Triangle:\n";
+            for (let i = 1; i <= n; i++) {
+                output += "*".repeat(i) + "\n";
+            }
+            output += "\n";
+            
+            // Inverted Right-angled Triangle
+            output += "Inverted Right-angled Triangle:\n";
+            for (let i = n; i >= 1; i--) {
+                output += "*".repeat(i) + "\n";
+            }
+            output += "\n";
+            
+            // Pyramid
+            output += "Pyramid:\n";
+            for (let i = 1; i <= n; i++) {
+                output += " ".repeat(n - i) + "*".repeat(2 * i - 1) + "\n";
+            }
+            output += "\n";
+            
+            // Diamond
+            output += "Diamond:\n";
+            for (let i = 1; i <= n; i++) {
+                output += " ".repeat(n - i) + "*".repeat(2 * i - 1) + "\n";
+            }
+            for (let i = n - 1; i >= 1; i--) {
+                output += " ".repeat(n - i) + "*".repeat(2 * i - 1) + "\n";
+            }
+            output += "\n";
+            
+            // Square
+            output += "Square:\n";
+            for (let i = 1; i <= n; i++) {
+                output += "*".repeat(n) + "\n";
+            }
+            
+            document.getElementById("output").innerText = output;
+        }
+    </script>
+</body>
+</html>

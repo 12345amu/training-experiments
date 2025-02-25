@@ -1,0 +1,93 @@
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checker</title>
+</head>
+<body>
+
+    <h2>Number Checker</h2>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="checkNumber()">Check</button>
+    <pre id="output"></pre>
+
+    <script>
+        function checkNumber() {
+            let num = parseInt(document.getElementById("number").value);
+            let result = "";
+            
+            // Check even or odd
+            if (num % 2 === 0) {
+                result += num + " is Even.\n";
+            } else {
+                result += num + " is Odd.\n";
+            }
+            
+            // Check prime
+            let isPrime = num > 1;
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            result += isPrime ? num + " is Prime.\n" : num + " is Not Prime.\n";
+            
+            // Check positive, negative, or zero
+            if (num > 0) {
+                result += num + " is Positive.";
+            } else if (num < 0) {
+                result += num + " is Negative.";
+            } else {
+                result += num + " is Zero.";
+            }
+            
+            document.getElementById("output").innerText = result;
+        }
+    </script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Area of Shapes</title>
+</head>
+<body>
+
+    <h2>Area Calculator</h2>
+    <p id="result"></p>
+
+    <script>
+        let areaOfShapes = "Square"; // Change this to test different shapes
+        let a = 5, b = 10, r = 7; // Example values for testing
+        let result = "";
+
+        switch (areaOfShapes) {
+            case "Rectangle":
+                result = "Area of Rectangle: " + (a * b);
+                break;
+            case "Circle":
+                result = "Area of Circle: " + (Math.PI * r * r).toFixed(2);
+                break;
+            case "Square":
+                result = "Area of Square: " + (a * a);
+                break;
+            default:
+                result = "Sorry, the shape is not available.";
+        }
+
+        document.getElementById("result").innerText = result;
+    </script>
+
+</body>
+</html>

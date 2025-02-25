@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .before() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            padding: 20px;
+            background-color: lightblue;
+            text-align: center;
+            margin: 20px auto;
+            font-weight: bold;
+        }
+        .new-content {
+            background-color: lightcoral;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="addButton">Add Content Before</button>
+    <div class="box" id="myBox">Original Box</div>
+
+    <script>
+        $(document).ready(function() {
+            $('#addButton').click(function() {
+                // Add a new paragraph before the box
+                $('#myBox').before('<p class="new-content">This is a new paragraph added before the box.</p>');
+            });
+        });
+    </script>
+
+</body>
+</html>

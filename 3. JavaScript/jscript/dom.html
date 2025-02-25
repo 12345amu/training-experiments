@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Selection Methods</title>
+    <style>
+        .myClass {
+            color: blue;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript DOM Selection Methods</h2>
+
+    <p id="uniquePara">This paragraph is selected using <b>getElementById()</b>.</p>
+
+    <p class="myClass">This paragraph is selected using <b>getElementsByClassName()</b>.</p>
+    <p class="myClass">Another paragraph with the same class.</p>
+
+    <div>
+        <p>This paragraph is selected using <b>getElementsByTagName()</b>.</p>
+    </div>
+
+    <p class="queryPara">This paragraph is selected using <b>querySelector()</b>.</p>
+    <p class="queryPara">This paragraph is selected using <b>querySelectorAll()</b>.</p>
+
+    <button onclick="applyMethods()">Apply DOM Methods</button>
+
+    <script>
+        function applyMethods() {
+            // getElementById()
+            let idElement = document.getElementById("uniquePara");
+            idElement.style.color = "red";
+
+            // getElementsByClassName()
+            let classElements = document.getElementsByClassName("myClass");
+            for (let i = 0; i < classElements.length; i++) {
+                classElements[i].style.color = "green";
+            }
+
+            // getElementsByTagName()
+            let tagElements = document.getElementsByTagName("p");
+            for (let i = 0; i < tagElements.length; i++) {
+                tagElements[i].style.fontWeight = "bold";
+            }
+
+            // querySelector()
+            let queryElement = document.querySelector(".queryPara");
+            queryElement.style.backgroundColor = "yellow";
+
+            // querySelectorAll()
+            let queryElements = document.querySelectorAll(".queryPara");
+            queryElements.forEach(element => {
+                element.style.border = "2px solid black";
+            });
+        }
+    </script>
+
+</body>
+</html>

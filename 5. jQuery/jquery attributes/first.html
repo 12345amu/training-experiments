@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .first() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight { background-color: yellow; }
+    </style>
+</head>
+<body>
+
+    <ul id="myList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+    </ul>
+
+    <button id="highlightFirst">Highlight First Item</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#highlightFirst').click(function() {
+                $('#myList li').first().addClass('highlight');
+            });
+        });
+    </script>
+
+</body>
+</html>

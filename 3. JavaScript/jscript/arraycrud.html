@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+
+</head>
+<body onload="displayArray()">
+
+    <h2>JavaScript Array Operations</h2>
+
+    <p id="arrayResult"></p>
+
+    <button onclick="addDecember()">Add 'Dec' at the end</button>
+    <button onclick="showSpliceResult()">Show Splice Return Value</button>
+    <p id="spliceResult"></p>
+    
+    <button onclick="updateMarch()">Update 'march' to 'March'</button>
+    <button onclick="deleteJune()">Delete 'June'</button>
+    <script>
+        let months = ['Jan', 'march', 'April', 'June', 'July'];
+
+        function addDecember() {
+            months.push('Dec');
+            displayArray();
+        }
+
+        function showSpliceResult() {
+            let removed = months.splice(1, 1); // Removes 'march' (index 1)
+            document.getElementById("spliceResult").innerText = "Removed: " + removed;
+            displayArray();
+        }
+
+        function updateMarch() {
+            let index = months.indexOf('march');
+            if (index !== -1) {
+                months[index] = 'March';
+            }
+            displayArray();
+        }
+
+        function deleteJune() {
+            let index = months.indexOf('June');
+            if (index !== -1) {
+                months.splice(index, 1);
+            }
+            displayArray();
+        }
+
+        function displayArray() {
+            document.getElementById("arrayResult").innerText = "Array: " + months.join(', ');
+        }
+    </script>
+
+</body>
+</html>

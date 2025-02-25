@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .filter() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <ul id="myList">
+        <li class="highlight">Apple</li>
+        <li>Banana</li>
+        <li class="highlight">Cherry</li>
+        <li>Grapes</li>
+    </ul>
+
+    <button id="filterButton">Highlight Selected</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#filterButton').click(function() {
+                $('#myList li').filter('.highlight').css('color', 'blue');
+            });
+        });
+    </script>
+
+</body>
+</html>

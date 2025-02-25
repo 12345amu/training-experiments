@@ -1,0 +1,337 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <form id="form">
+            <div class="form-group">
+                
+                <div class="input-container">
+                    <input type="text" id="name" placeholder="FirstName" style="width: 225px;">
+                    <i class="fas fa-question-circle" id="name-icon"></i>
+                    <div class="arrow-box" id="name-error">
+                        please put something here
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-container">
+                    <input type="text" id="field7"  placeholder="LastName" style="width: 225px;">
+                    <i class="fas fa-question-circle" id="field7-icon"></i>
+                    <div class="arrow-box" id="field7-error">
+                        please put something here
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-container">
+                    <input type="email" id="email" placeholder="Email" style="width: 225px;">
+                    <i class="fas fa-question-circle" id="email-icon"></i>
+                    <div class="arrow-box" id="email-error">
+                        please put something here
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                
+                <div class="input-container date-container">
+                    <input type="date" id="date" placeholder="Date" style="width: 225px;">
+                    <div class="icon-container">
+                        <!-- <i class="fas fa-calendar-alt"></i>  -->
+                        <!-- <i class="fas fa-caret-down"></i> -->
+                        <!-- <div class="arrow-box"> -->
+                            <!-- <i class="fas fa-caret-up"></i> -->
+                            <!-- <i class="fas fa-caret-down"></i> -->
+                        <!-- </div> -->
+                    </div>
+                    <i class="fas fa-question-circle" id="date-icon"></i>
+                    <div class="arrow-box" id="date-error">
+                        please put something here
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="input-container">
+                    <input type="text" id="field8" maxlength="10" placeholder="Number" style="width: 225px;">
+                    <i class="fas fa-question-circle" id="field8-icon"></i>
+                    <div class="arrow-box" id="field8-error">
+                        please put something here
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-container">
+                    <input type="password" id="password" placeholder="Password" style="width: 225px;">
+                    <i class="fas fa-question-circle" id="password-icon"></i>
+                    <div class="arrow-box" id="password-error">
+                        please put something here
+                    </div>
+                </div>
+                <div class="password-check" id="password-check">
+                    <span id="check-at">@ - symbols</span>
+                    <span id="check-uppercase">A - uppercase letters</span>
+                    <span id="check-lowercase">a - lowercase letters</span>
+                    <span id="check-number">0 - numbers</span>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn" id="submit-btn" disabled>Submit</button>
+        </form>
+    </div>
+    <script>
+       
+$(document).ready(function() {
+    function validateForm() {
+        var isValid = true;
+
+        $('input').each(function() {
+            if ($(this).val().trim() === '') {
+                isValid = false;
+                $(this).siblings('.arrow-box').show();
+                $(this).siblings('i').show();
+            } else {
+                $(this).siblings('.arrow-box').hide();
+                $(this).siblings('i').hide();
+            }
+        });
+
+        $('#submit-btn').prop('disabled', !isValid);
+    }
+
+    $('input').on('input', function() {
+        validateForm();
+    });
+
+    $('#form').on('submit', function(e) {
+        e.preventDefault();
+
+        if ($('#submit-btn').prop('disabled') === false) {
+            var formData = {
+                firstName: $('#name').val().trim(),
+                lastName: $('#field7').val().trim(),
+                email: $('#email').val().trim(),
+                date: $('#date').val(),
+                phone: $('#field8').val().trim(),
+                password: $('#password').val().trim()
+            };
+
+            $.ajax({
+                url: 'https://dummyjson.com/products/1', // Replace with your actual API URL
+                type: 'GET',
+                contentType: 'application/json',
+                data: formData, // In GET, data will be converted to query parameters data: JSON.stringify(formData),
+                success: function(response) {
+                    alert('Form submitted successfully!');
+                    console.log('Server Response:', response);
+                },
+                error: function(xhr, status, error) {
+                    alert('Error submitting form');
+                    console.error('Error:', error);
+                }
+            });
+        }
+    });
+
+    $('#name').on('input', function() {
+        var namePattern = /^[A-Za-z\s]+$/;
+        var enteredName = $(this).val().trim();
+
+        if (enteredName === '' || !namePattern.test(enteredName)) {
+            $('#name-error').text('Enter a valid name (only alphabets)').show();
+            $('#name-icon').show();
+        } else {
+            $('#name-error').hide();
+            $('#name-icon').hide();
+        }
+    });
+
+    $('#password').on('input', function() {
+        var value = $(this).val();
+
+        if (value.length > 8) {
+            $(this).val(value.slice(0, 8));
+        }
+
+        var isValid = value.length === 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /[0-9]/.test(value) && value.includes('@');
+
+        $('#check-at').toggleClass('valid', value.includes('@'));
+        $('#check-uppercase').toggleClass('valid', /[A-Z]/.test(value));
+        $('#check-lowercase').toggleClass('valid', /[a-z]/.test(value));
+        $('#check-number').toggleClass('valid', /[0-9]/.test(value));
+
+        $('#submit-btn').prop('disabled', !isValid);
+    });
+
+    $('#email').on('input', function() {
+        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var enteredEmail = $(this).val().trim();
+
+        if (enteredEmail === '' || !emailPattern.test(enteredEmail)) {
+            $('#email-error').text('Enter correctly: example@domain.com').show();
+            $('#email-icon').show();
+        } else {
+            $('#email-error').hide();
+            $('#email-icon').hide();
+        }
+    });
+
+    $('#field8').on('input', function() {
+        var phonePattern = /^[6789]\d{9}$/;
+        var enteredPhone = $(this).val().trim();
+
+        this.value = this.value.replace(/[^0-9]/g, '');
+
+        if (!phonePattern.test(enteredPhone)) {
+            $('#field8-error').text('Enter a valid 10-digit phone number').show();
+            $('#field8-icon').show();
+        } else {
+            $('#field8-error').hide();
+            $('#field8-icon').hide();
+        }
+    });
+
+    $('#date').on('input', function() {
+        var today = new Date().toISOString().split('T')[0];
+        var enteredDate = $(this).val();
+
+        if (enteredDate === '' || enteredDate < today) {
+            $('#date-error').text('Enter a valid date (today or future)').show();
+            $('#date-icon').show();
+        } else {
+            $('#date-error').hide();
+            $('#date-icon').hide();
+        }
+    });
+});
+
+
+
+        
+//         $(document).ready(function() {
+//             function validateForm() {
+//                 var isValid = true;
+                
+//                 // Check all input fields for empty values
+//                 $('input').each(function() {
+//                     if ($(this).val().trim() === '') {
+//                         isValid = false;
+//                         $(this).siblings('.arrow-box').show();
+//                         $(this).siblings('i').show();
+//                     } else {
+//                         $(this).siblings('.arrow-box').hide();
+//                         $(this).siblings('i').hide();
+//                     }
+//                });
+
+
+//               // Enable or disable submit button based on validation
+//                $('#submit-btn').prop('disabled', !isValid);
+//             }
+
+//             // Real-time validation on input change
+//             $('input').on('input', function() {
+//                 validateForm();
+//         });
+
+//     // Form submission handling
+//     $('#form').on('submit', function(e) {
+//         e.preventDefault();
+//         if ($('#submit-btn').prop('disabled') === false) {
+//             alert('Form submitted successfully!');
+//         }
+//     });
+
+//     // Name Validation (Only Alphabets Allowed)
+//     $('#name').on('input', function() {
+//         var namePattern = /^[A-Za-z\s]+$/;
+//         var enteredName = $(this).val().trim();
+
+//         if (enteredName === '' || !namePattern.test(enteredName)) {
+//             $('#name-error').text('Enter a valid name (only alphabets)').show();
+//             $('#name-icon').show();
+//         } else {
+//             $('#name-error').hide();
+//             $('#name-icon').hide();
+//         }
+//     });
+
+//     // Password Validation (Live Checking)
+// $('#password').on('input', function() {
+//     var value = $(this).val();
+
+//     // Restrict password length to 8 characters
+//     if (value.length > 8) {
+//         $(this).val(value.slice(0, 8)); // Truncate to 8 characters
+//     }
+
+//     var isValid = value.length === 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /[0-9]/.test(value) && value.includes('@');
+
+
+//     $('#check-at').toggleClass('valid', value.includes('@'));
+//     $('#check-uppercase').toggleClass('valid', /[A-Z]/.test(value));
+//     $('#check-lowercase').toggleClass('valid', /[a-z]/.test(value));
+//     $('#check-number').toggleClass('valid', /[0-9]/.test(value));
+
+//     $('#submit-btn').prop('disabled', !isValid);
+
+// });
+
+
+//     // Email Validation (Runs Only When Email Input Changes)
+//     $('#email').on('input', function() {
+//         var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+//         var enteredEmail = $(this).val().trim();
+
+//         if (enteredEmail === '' || !emailPattern.test(enteredEmail)) {
+//             $('#email-error').text('Enter correctly: example@domain.com').show();
+//             $('#email-icon').show();
+//         } else {
+//             $('#email-error').hide();
+//             $('#email-icon').hide();
+//         }
+//     });
+
+//     // Phone Number Validation (Runs Only When Phone Input Changes)
+//     $('#field8').on('input', function() {
+//         var phonePattern = /^[6789]\d{9}$/; // Ensures 10 digits & starts with 6,7,8,9
+//         var enteredPhone = $(this).val().trim();
+
+//         this.value = this.value.replace(/[^0-9]/g, ''); // Allows only numbers
+
+//         if (!phonePattern.test(enteredPhone)) {
+//             $('#field8-error').text('Enter a valid 10-digit phone number').show();
+//             $('#field8-icon').show();
+//         } else {
+//             $('#field8-error').hide();
+//             $('#field8-icon').hide();
+//         }
+//     });
+
+//     // Date Validation (Runs Only When Date Input Changes)
+//     $('#date').on('input', function() {
+//         var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+//         var enteredDate = $(this).val();
+
+//         if (enteredDate === '' || enteredDate < today) {
+//             $('#date-error').text('Enter a valid date (today or future)').show();
+//             $('#date-icon').show();
+//         } else {
+//             $('#date-error').hide();
+//             $('#date-icon').hide();
+//         }
+//     });
+
+    
+
+// });
+    </script>
+</body>
+</html>

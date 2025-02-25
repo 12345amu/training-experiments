@@ -1,0 +1,91 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Math Methods</title>
+</head>
+<body>
+    <h2>JavaScript Math Methods</h2>
+
+    <p><strong>Absolute Value:</strong> <span id="abs"></span></p>
+    <p><strong>Square Root:</strong> <span id="sqrt"></span></p>
+    <p><strong>Power (3<sup>4</sup>):</strong> <span id="pow"></span></p>
+    <p><strong>Random Number (0 to 100):</strong> <span id="random"></span></p>
+    <p><strong>Ceiling Value:</strong> <span id="ceil"></span></p>
+    <p><strong>Floor Value:</strong> <span id="floor"></span></p>
+    <p><strong>Rounded Value:</strong> <span id="round"></span></p>
+    <p><strong>Max Value:</strong> <span id="max"></span></p>
+    <p><strong>Min Value:</strong> <span id="min"></span></p>
+
+    <script>
+        // Math.abs() - Returns absolute value
+        document.getElementById("abs").innerText = Math.abs(-10);
+
+        // Math.sqrt() - Returns square root
+        document.getElementById("sqrt").innerText = Math.sqrt(25);
+
+        // Math.pow() - Returns power of a number
+        document.getElementById("pow").innerText = Math.pow(3, 4);
+
+        // Math.random() - Returns a random number (scaled to 0-100)
+        document.getElementById("random").innerText = Math.floor(Math.random() * 101);
+
+        // Math.ceil() - Rounds up to the nearest integer
+        document.getElementById("ceil").innerText = Math.ceil(4.3);
+
+        // Math.floor() - Rounds down to the nearest integer
+        document.getElementById("floor").innerText = Math.floor(4.8);
+
+        // Math.round() - Rounds to the nearest integer
+        document.getElementById("round").innerText = Math.round(4.5);
+
+        // Math.max() - Returns the highest value
+        document.getElementById("max").innerText = Math.max(10, 20, 5, 30, 25);
+
+        // Math.min() - Returns the lowest value
+        document.getElementById("min").innerText = Math.min(10, 20, 5, 30, 25);
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval and clearInterval</title>
+</head>
+<body>
+    <h2>JavaScript setInterval() and clearInterval()</h2>
+    
+    <p>Time Elapsed: <span id="timer">0</span> seconds</p>
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="stopTimer()">Stop Timer</button>
+
+    <script>
+        let count = 0;  
+        let intervalID;  
+
+        function startTimer() {
+            // Prevent multiple intervals
+            if (!intervalID) {
+                intervalID = setInterval(() => {
+                    count++;
+                    document.getElementById("timer").innerText = count;
+                }, 1000);
+            }
+        }
+
+        function stopTimer() {
+            clearInterval(intervalID);  
+            intervalID = null; // Reset intervalID
+        }
+    </script>
+</body>
+</html>

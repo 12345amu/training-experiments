@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .add() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .div2 {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 5px;
+        }
+        #div1 {
+            background-color: lightgray;
+            padding: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">This is div1</div>
+    <div class="div2">This is div2</div>
+    <div class="div2">This is another div2</div>
+
+    <button id="button">Add div2 elements to div1</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#button').click(function() {
+                $('#div1').add('.div2').css("color", "red");
+            });
+        });
+    </script>
+</body>
+</html>

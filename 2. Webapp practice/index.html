@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Web App</title>
+
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  
+  <script>
+    $(function() {
+        $("#tabs").tabs({
+            activate: function (event, ui) {
+                // Remove class from all tabs
+                $("#tabs ul li").removeClass("custom-active");
+
+                // Add class to the newly activated tab
+                ui.newTab.addClass("custom-active");
+            }
+        });
+    });
+</script>
+
+
+
+  
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+        <img src="http://cse.iiitdmj.ac.in/assets/img/logo.png" alt="Logo">
+    </div>
+    <ul class="nav">
+      <li><a href="http://cse.iiitdmj.ac.in/aboutus.php">About</a></li>
+      
+      <!-- Dropdown for Programs -->
+      <li class="dropdown">
+        <a href="#" tabindex="0">Programs</a>
+        <div class="dropdown-content">
+          <a href="#">BTech</a>
+          <a href="#">MTech</a>
+          <a href="#">PhD</a>
+        </div>
+      </li>
+      
+      <!-- Dropdown for People -->
+      <li class="dropdown">
+        <a href="#" tabindex="0">People</a>
+        <div class="dropdown-content">
+          <a href="#">Faculty</a>
+          <a href="#">Student Staff</a>
+          <a href="#">Visiting Faculty</a>
+        </div>
+      </li>
+
+      <!-- Dropdown for Research -->
+      <li class="dropdown">
+        <a href="#" tabindex="0">Research</a>
+        <div class="dropdown-content">
+          <a href="#">Publications</a>
+          <a href="#">Projects</a>
+          <a href="#">Research Work</a>
+        </div>
+      </li>
+
+      <li><a href="http://cse.iiitdmj.ac.in/placement.php">Placement</a></li>
+      <li><a href="http://cse.iiitdmj.ac.in/facilities.php">Facilities</a></li>
+      <li><a href="http://cse.iiitdmj.ac.in/gallery.php">Gallery</a></li>
+      <li><a href="http://cse.iiitdmj.ac.in/news_details.php"> News&Events</a></li>
+      <li><a href="http://cse.iiitdmj.ac.in/contactus.php">Contacts</a></li>
+      <li><a href="http://cse.iiitdmj.ac.in/login.php">Login</a></li>
+    </ul>
+  </div>
+<div class="right-side">
+    <h1>FACULTY PROFILE - APARAJITA OJHA</h1>
+</div>
+  <div class="content">
+    <div class="profile">
+      <img src="http://cse.iiitdmj.ac.in/assets/img/faculty/aojha.jpg" alt="Aparajita Ojha">
+      <div class="social-links">
+        
+    <a href="https://www.facebook.com/aparajita.ojha" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://google.com/yourprofile" target="_blank" class="social-icon"><i class="fab fa-google"></i></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                  
+      </div>
+
+      <ul>
+        <li><span>Name:</span> Aparajita Ojha</li>
+        <li><span>Designation:</span> Professor</li>
+        <li><span>Email:</span> aojha@iiitdmj.ac.in</li>
+        <li><span>Phone:</span> +91-761-2632 044</li>
+        <li><span>Webpage Link:</span> <a href="#">Click Here</a></li>
+        <li class = "adi"><span>CV:</span> <a href="#">Click Here</a></li>
+      </ul>
+    </div>
+
+    <!-- Right side content section -->
+    
+        <!-- Navigation Links -->
+        <div class="cont">
+          <!-- Tabs -->
+        <div id="tabs" min-height:500px >
+          <ul>
+              <li><a href="#profile" class="active">Profile</a></li>
+              <li><a href="#courses">Courses</a></li>
+              <li><a href="#research">Research Work</a></li>
+              <li><a href="#publication">Publication</a></li>
+              <li><a href="#administrative">Admin Work</a></li>
+              <li><a href="#students">Research Students</a></li>
+          </ul>
+
+          <!-- Content Section -->
+          <div id="profile" class="section">
+              <!-- About Me Section -->
+              <div>
+                  <h2><i class="fas fa-file-alt"></i> About Me</h2>
+                  <ul>
+                      <li>about</li>
+                  </ul>
+              </div>
+
+              <!-- Education Section -->
+              <div>
+                  <h2><i class="fas fa-trophy"></i> EDUCATION</h2>
+                  <ul>
+                      <li>qualification</li>
+                  </ul>
+              </div>
+
+              <!-- Interest Area Section -->
+              <div>
+                  <h2><i class="fas fa-check-square"></i> Interest Area</h2>
+                  <ul>
+                      <li>Mathematics in Computer Science, Computer Aided Geometric Design, Finite Elements, Spline Theory</li>
+                  </ul>
+              </div>
+          </div>
+
+          <!-- Courses Section -->
+          <div id="courses" class="section">
+              <h2><i class="fas fa-book"></i> Courses</h2>
+              <ul>
+                  <li>Course 1</li>
+                  <li>Course 2</li>
+                  <li>Course 3</li>
+              </ul>
+          </div>
+
+          <!-- Research Work Section -->
+          <div id="research" class="section">
+              <h2><i class="fas fa-flask"></i> Research Work</h2>
+              <ul>
+                  <li>Research 1</li>
+                  <li>Research 2</li>
+                  <li>Research 3</li>
+              </ul>
+          </div>
+
+          <!-- Publication Section -->
+          <div id="publication" class="section">
+              <h2><i class="fas fa-newspaper"></i> Publication</h2>
+              <ul>
+                  <li>Publication 1</li>
+                  <li>Publication 2</li>
+                  <li>Publication 3</li>
+              </ul>
+          </div>
+
+          <!-- Administrative Work Section -->
+          <div id="administrative" class="section">
+              <h2><i class="fas fa-briefcase"></i> Administrative Work</h2>
+              <ul>
+                  <li>Administrative Work 1</li>
+                  <li>Administrative Work 2</li>
+                  <li>Administrative Work 3</li>
+              </ul>
+          </div>
+
+          <!-- Research Students Section -->
+          <div id="students" class="section">
+              <h2><i class="fas fa-user-graduate"></i> Research Students</h2>
+              <ul>
+                  <li>Student 1</li>
+                  <li>Student 2</li>
+                  <li>Student 3</li>
+              </ul>
+          </div>
+      </div>
+
+    </div>
+    
+  </div>
+
+  <div class="container1">
+    <div class="links">
+      <h3>IMPORTANT LINKS</h3>
+      <a href="#">TA Duty 2023</a>
+      <a href="#">Project Based Internship</a>
+      <a href="#">Placement Cell</a>
+      <a href="#">Dean of Academics</a>
+      <a href="#">Dean of Students</a>
+      <a href="#">Dean of Research and Development</a>
+      <a href="#">Dean of Planning and Development</a>
+    </div>
+
+    <div class="links">
+      <h3>RESEARCH GROUP</h3>
+      <a href="#">Image Processing and Computer Vision</a>
+      <a href="#">IoT and Embedded Systems</a>
+      <a href="#">Machine Intelligence</a>
+    </div>
+
+    <div class="links">
+      <h3>QUICK LINKS</h3>
+      <a href="#">IIITDM Jabalpur Home</a>
+      <a href="#">Academic Calendar</a>
+      <a href="#">Holidays 2023</a>
+      <a href="#">Placement Cell</a>
+      <a href="#">About Us</a>
+      <a href="#">E & ICT Academy</a>
+      <a href="#">Web Team</a>
+    </div>
+
+    <div class="social-icons">
+       
+    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+        <h1>0761-2794261</h1>
+        <p>Mon - Fri/9:00 AM - 05:00 PM</p>
+    </div> 
+  </div>
+</body>
+</html>

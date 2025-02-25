@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple jQuery Selectors</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .highlight {
+      background-color: lightblue;
+    }
+    #header {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1 id="header">This is a Header</h1>
+    <p>This is a paragraph with a <span class="highlight">highlighted span</span>.</p>
+    <p class="highlight">This paragraph has a highlight class.</p>
+  </div>
+  
+  <div>
+    <p>This is a paragraph inside a div element.</p>
+    <p>This is another paragraph inside the same div element.</p>
+  </div>
+
+  <!-- Button to apply jQuery styles -->
+  <button id="applyStyles">Apply Styles</button>
+
+  <script>
+    // When the button is clicked
+    $('#applyStyles').click(function() {
+      // 1. Tag Selector: Selects all <p> elements
+      // $('p').css('color', 'green');
+      
+      // // 2. Class Selector: Selects all elements with the class "highlight"
+      // $('.highlight').css('background-color', 'yellow');
+      
+      // // 3. ID Selector: Selects the element with the ID "header"
+      // $('#header').css('font-size', '30px');
+      
+      // // 4. Descendant Selector: Selects <span> inside any <p> elements
+      // $('div span').css('font-style', 'italic');
+      
+      // 5. Child Selector: Selects direct child <p> elements inside <div>
+      $('div > p').css('color', 'red');
+    });
+  </script>
+
+</body>
+</html>

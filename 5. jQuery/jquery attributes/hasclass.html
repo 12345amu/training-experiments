@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .hasClass() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box" id="myBox">Box</div>
+    <button id="checkButton">Check Class</button>
+    <button id="toggleButton">Toggle Class</button>
+
+    <script>
+        $(document).ready(function() {
+            // Check if the element has the 'highlight' class when the button is clicked
+            $('#checkButton').click(function() {
+                if ($('#myBox').hasClass('highlight')) {
+                    alert('The box has the "highlight" class.');
+                } else {
+                    alert('The box does NOT have the "highlight" class.');
+                }
+            });
+
+            // Toggle the 'highlight' class on the box
+            $('#toggleButton').click(function() {
+                $('#myBox').toggleClass('highlight');
+            });
+        });
+    </script>
+
+</body>
+</html>

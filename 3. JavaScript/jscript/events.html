@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+    <style>
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            line-height: 150px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Mouse, Keyboard, and Form Events</h2>
+
+    <!-- Mouse Events -->
+    <div id="box">Hover Me</div>
+
+    <!-- Keyboard Events -->
+    <input type="text" id="textInput" placeholder="Type something..." />
+    <p id="keyOutput"></p>
+
+    <!-- Form Events -->
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter Name" required />
+        <input type="email" id="email" placeholder="Enter Email" required />
+        <button type="submit">Submit</button>
+    </form>
+    <p id="formMessage"></p>
+
+    <script>
+        // Mouse Events
+        let box = document.getElementById("box");
+
+        box.addEventListener("mouseover", function() {
+            box.style.backgroundColor = "red";
+            box.textContent = "Mouse Over";
+        });
+
+        box.addEventListener("mouseout", function() {
+            box.style.backgroundColor = "blue";
+            box.textContent = "Hover Me";
+        });
+
+        box.addEventListener("click", function() {
+            alert("Box Clicked!");
+        });
+
+        // Keyboard Events
+        let textInput = document.getElementById("textInput");
+        let keyOutput = document.getElementById("keyOutput");
+
+        textInput.addEventListener("keydown", function(event) {
+            keyOutput.textContent = "Key Pressed: " + event.key;
+        });
+
+        textInput.addEventListener("keyup", function(event) {
+            keyOutput.textContent = "Key Released: " + event.key;
+        });
+
+        // Form Events
+        let form = document.getElementById("myForm");
+        let formMessage = document.getElementById("formMessage");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            formMessage.textContent = "Form Submitted Successfully!";
+        });
+
+        let nameInput = document.getElementById("name");
+        let emailInput = document.getElementById("email");
+
+        nameInput.addEventListener("focus", function() {
+            nameInput.style.border = "2px solid green";
+        });
+
+        nameInput.addEventListener("blur", function() {
+            nameInput.style.border = "1px solid gray";
+        });
+
+        emailInput.addEventListener("change", function() {
+            alert("Email changed to: " + emailInput.value);
+        });
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removeEventListener Example</title>
+    <style>
+        #btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn">Click Me</button>
+    <button id="removeBtn">Remove Click Event</button>
+    <p id="message"></p>
+
+    <script>
+        let button = document.getElementById("btn");
+        let removeButton = document.getElementById("removeBtn");
+        let message = document.getElementById("message");
+
+        function showMessage() {
+            message.textContent = "Button Clicked!";
+        }
+
+        // Add event listener
+        button.addEventListener("click", showMessage);
+
+        // Remove event listener
+        removeButton.addEventListener("click", function() {
+            button.removeEventListener("click", showMessage);
+            message.textContent = "Click event removed!";
+        });
+    </script>
+
+</body>
+</html> -->

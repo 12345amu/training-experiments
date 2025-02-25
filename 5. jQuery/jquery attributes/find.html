@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .find() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="container">
+        <p>This is a <span>highlighted</span> word.</p>
+        <p>Another <span>important</span> word.</p>
+    </div>
+
+    <button id="changeColor">Change Span Color</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#changeColor').click(function() {
+                $('#container').find('span').css('color', 'red');
+            });
+        });
+    </script>
+
+</body>
+</html>

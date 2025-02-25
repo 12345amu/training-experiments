@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .insertAfter() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="box">This is a box.</div>
+    <button id="addText">Insert Paragraph</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#addText').click(function() {
+                $('<p>New paragraph added after the box!</p>').insertAfter('#box');
+            });
+        });
+    </script>
+
+</body>
+</html>

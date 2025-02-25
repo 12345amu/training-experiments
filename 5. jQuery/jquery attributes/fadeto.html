@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .fadeTo() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 150px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box" id="fadeBox">Click Me</div>
+
+    <script>
+        $(document).ready(function() {
+            $('#fadeBox').click(function() {
+                $(this).fadeTo(1000, 0.5); // Fades to 50% opacity over 1 second
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Effects with Image</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <style>
+    img {
+      width: 200px;
+      height: auto;
+      position: relative;
+      margin: 10px 0;
+      display: none; /* Initially hidden */
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Show/Hide Example</h3>
+  <button id="hideBtn">Hide Image</button>
+  <button id="showBtn">Show Image</button>
+
+  <h3>Fade Effects Example</h3>
+  <button id="fadeInBtn">Fade In</button>
+  <button id="fadeOutBtn">Fade Out</button>
+  <button id="fadeToggleBtn">Fade Toggle</button>
+
+  <h3>Slide Effects Example</h3>
+  <button id="slideUpBtn">Slide Up</button>
+  <button id="slideDownBtn">Slide Down</button>
+  <button id="slideToggleBtn">Slide Toggle</button>
+
+  <h3>Custom Animation Example</h3>
+  <button id="animateBtn">Animate</button>
+  <button id="stopBtn">Stop</button> <!-- Stop Button Added -->
+
+  <br>
+  <img id="image" src="image1.jpg" alt="Example Image">
+  <script>
+    $(document).ready(function() {
+      // Show/Hide Image
+      $("#hideBtn").click(function() {
+        $("#image").hide(3000);
+      });
+
+      $("#showBtn").click(function() {
+        $("#image").show(2000);
+      });
+
+      // Fade Effects
+      $("#fadeInBtn").click(function() {
+        $("#image").fadeIn();
+      });
+
+      $("#fadeOutBtn").click(function() {
+        $("#image").fadeOut();
+      });
+
+      $("#fadeToggleBtn").click(function() {
+        $("#image").fadeToggle();
+      });
+
+      // Slide Effects
+      $("#slideUpBtn").click(function() {
+        $("#image").slideUp();
+      });
+
+      $("#slideDownBtn").click(function() {
+        $("#image").slideDown();
+      });
+
+      $("#slideToggleBtn").click(function() {
+        $("#image").slideToggle();
+      });
+
+      // Custom Animation
+      $("#animateBtn").click(function() {
+        $("#image").animate({ opacity: 0.5, left: "50px" }, 1000);
+      });
+
+      // Stop Animation/Effect
+      $("#stopBtn").click(function() {
+        $("#image").stop();
+      });
+    });
+  </script>
+</body>
+</html>

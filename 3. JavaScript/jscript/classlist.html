@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .red-text {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="myText">Hello, this is a paragraph!</p>
+    <button onclick="addClass()">Add Class</button>
+    <button onclick="removeClass()">Remove Class</button>
+    <button onclick="toggleClass()">Toggle Class</button>
+    <button onclick="checkClass()">Check Class</button>
+    <button onclick="replaceClass()">Replace Class</button>
+
+    <script>
+        let paragraph = document.getElementById("myText");
+
+        function addClass() {
+            paragraph.classList.add("highlight");
+        }
+
+        function removeClass() {
+            paragraph.classList.remove("highlight");
+        }
+
+        function toggleClass() {
+            paragraph.classList.toggle("highlight");
+        }   
+
+        function checkClass() {
+            alert(paragraph.classList.contains("highlight"));
+        }
+
+        function replaceClass() {
+            paragraph.classList.replace("highlight", "red-text");
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Date Methods</title>
+</head>
+<body>
+    <h2>JavaScript Date Methods</h2>
+
+    <p><strong>Current Date:</strong> <span id="current-date"></span></p>
+    <p><strong>Formatted Date:</strong> <span id="formatted-date"></span></p>
+    <p><strong>Adding Days (5 days ahead):</strong> <span id="new-date"></span></p>
+    <p><strong>Time Difference (in days):</strong> <span id="date-diff"></span></p>
+
+    <script>
+        // Get the current date
+        let currentDate = new Date();
+        document.getElementById("current-date").innerText = currentDate;
+
+        // Formatting the date
+        let formattedDate = currentDate.toDateString() + " | " + currentDate.toLocaleTimeString();
+        document.getElementById("formatted-date").innerText = formattedDate;
+
+        // Adding 5 days to current date
+        let futureDate = new Date();
+        futureDate.setDate(futureDate.getDate() + 5);
+        document.getElementById("new-date").innerText = futureDate.toDateString();
+
+        // Calculating the difference between two dates
+        let startDate = new Date("2024-02-01");
+        let endDate = new Date("2024-02-07");
+        let difference = (endDate - startDate) / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+        document.getElementById("date-diff").innerText = difference + " days";
+    </script>
+</body>
+</html> -->
+
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Series</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="company" class="nav-left" onmouseenter="changeCompany()" onmouseout="normal()">Company</div>
+            <div class="nav-right">
+                <ul>
+                    <li class="revenue">Revenue</li>
+                    <li class="sales">Sales</li>
+                    <li class="customers">Customers</li>
+                    <li class="reports">Reports</li>
+                    <li class="settings">Settings</li>
+                </ul>
+            </div>
+            <div class="dark-theme" onclick="darkTheme()" ondblclick="lightTheme()">Dark Theme</div>
+            <div id="registerBtn">Register</div>
+            <!-- <button id="close">Close Sidebar</button> -->
+        </nav>
+    </header>
+    
+    <!-- Register Modal -->
+    <div class="register-modal" id="registerSection">
+        <h3 class="registerTitle">Register</h3>
+        <div id="closeRegisterBtn">Close</div>
+        <label>First Name</label>
+        <input type="text" id="firstName" placeholder="First Name">
+        <label>Last Name</label>
+        <input type="text" id="lastName" placeholder="Last Name">
+        <label>Country</label>
+        <input type="text" id="country" placeholder="Country">
+        <label>Phone Number</label>
+        <input type="text" id="phoneNumber" placeholder="Phone Number">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Email">
+        <label>Password</label>
+        <input type="password" id="registerPassword" placeholder="Enter your password">
+        <button id="registerSubmit">Register</button>
+        <p>Already have an account? <span id="loginBtn">Login</span></p>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginSection">
+        <h3 class="loginTitle">Login</h3>
+        <div id="closeLoginBtn">Close</div>
+        <label>Username</label>
+        <input type="text" id="loginUsername" placeholder="Enter your name">
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter your password">
+        <button id="loginSubmit">Login</button>
+    </div>
+    
+    <div class="sidenav">
+        <ul>
+            <li>Dashboard</li>
+            <li class="revenue">Revenue</li>
+            <li class="sales">Sales</li>
+            <li class="customers">Customers</li>
+            <li class="reports">Reports</li>
+            <li class="meetings">Meetings</li>
+            <li class="events">Events</li>
+            <li class="settings">Settings</li>
+        </ul>
+    </div>
+    
+    <div class="main">
+        <div class="section revenue" onmouseover="eleHover(this)" onmouseout="eleOut(this)">
+            <h2>Revenue</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="section sales" onmouseover="eleHover(this)" onmouseout="eleOut(this)">
+            <h2>Sales</h2>
+            <p>Ut euismod efficitur turpis, non tincidunt nibh volutpat sed.</p>
+        </div>
+        <div class="section" onmouseover="eleHover(this)" onmouseout="eleOut(this)">
+            <h2 class="customers">Customers</h2>
+            <p>Suspendisse semper ipsum eget neque malesuada auctor.</p>
+        </div>
+        <div class="section reports" onmouseover="eleHover(this)" onmouseout="eleOut(this)">
+            <h2>Reports</h2>
+            <p>Morbi id feugiat mauris, at tempus mi.</p>
+        </div>
+        <div class="section meetings" onmouseover="eleHover(this)" onmouseout="eleOut(this)">
+            <h2>Meetings</h2>
+            <p>Nulla facilisi. Vestibulum vitae eros nec lectus posuere ultricies.</p>
+        </div>
+        <div class="section events" onmouseover="eleHover(this)" onmouseout="eleOut(this)">
+            <h2>Events</h2>
+            <p>Quisque eu massa a mauris ultricies dapibus non vitae nulla.</p>
+        </div>
+    </div>
+    <script src="project.js"></script>
+</body>
+</html>

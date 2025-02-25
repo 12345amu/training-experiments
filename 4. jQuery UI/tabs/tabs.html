@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form with Images & Links</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+        .tab-content {
+            padding: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 80%;
+            padding: 6px;
+            margin-top: 3px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .ui-tabs {
+    position: absolute;
+    padding: .2em;
+    margin-left: 25em;
+}
+
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+        .btn-container {
+            margin-top: 15px;
+        }
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .preview-img {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            object-fit: cover;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 text = "center">Form </h2>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-1">Personal Info</a></li>
+            <li><a href="#tab-2">Address Details</a></li>
+            <li><a href="#tab-3">Review & Submit</a></li>
+        </ul>
+
+        <!-- Personal Info Tab -->
+        <div id="tab-1" class="tab-content">
+            <h3>Personal Information</h3>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name">
+                <span class="error">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email">
+                <span class="error">Please enter a valid email.</span>
+            </div>
+            <div class="form-group">
+                <label for="profile-pic">Upload Profile Picture</label>
+                <input type="file" id="profile-pic" accept="image/*">
+                <img id="preview" class="preview-img" alt="Profile Preview">
+            </div>
+            <div class="btn-container">
+                <button class="btn next" data-next="1">Next</button>
+            </div>
+        </div>
+
+        <!-- Address Details Tab -->
+        <div id="tab-2" class="tab-content">
+            <h3>Address Details</h3>
+            <div class="form-group">
+                <label for="address">Street Address</label>
+                <input type="text" id="address">
+                <span class="error">Please enter your address.</span>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city">
+                <span class="error">Please enter your city.</span>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country">
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                </select>
+                <span class="error">Please select your country.</span>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn prev" data-prev="0">Previous</button>
+                <button class="btn next" data-next="2">Next</button>
+            </div>
+        </div>
+
+        <!-- Review & Submit Tab -->
+        <div id="tab-3" class="tab-content">
+            <h3>Review & Submit</h3>
+            <p><strong>Name:</strong> <span id="review-name"></span></p>
+            <p><strong>Email:</strong> <span id="review-email"></span></p>
+            <p><strong>Address:</strong> <span id="review-address"></span></p>
+            <p><strong>City:</strong> <span id="review-city"></span></p>
+            <p><strong>Country:</strong> <span id="review-country"></span></p>
+            <p><strong>Profile Picture:</strong></p>
+            <img id="review-profile-pic" class="preview-img" alt="Profile Picture">
+            
+            <h4>Useful Links:</h4>
+            <ul>
+                <li><a href="https://www.jqueryui.com" target="_blank">Learn about jQuery UI</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file" target="_blank">File Upload in HTML</a></li>
+            </ul>
+
+            <div class="btn-container">
+                <button class="btn prev" data-prev="1">Previous</button>
+                <button class="btn" id="submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $("#tabs").tabs(); // Initialize jQuery UI Tabs
+            
+            $(".next").click(function() {
+                let tabIndex = $(this).data("next");
+                if (validateForm(tabIndex - 1)) {
+                    $("#tabs").tabs("option", "active", tabIndex);
+                }
+            });
+
+            $(".prev").click(function() {
+                let tabIndex = $(this).data("prev");
+                $("#tabs").tabs("option", "active", tabIndex);
+            });
+
+            $("#submit-btn").click(function() {
+                alert("Form Submitted Successfully!");
+            });
+
+            $("#profile-pic").change(function(event) {
+                let file = event.target.files[0];
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function(e) {
+                        $("#preview").attr("src", e.target.result).show();
+                        $("#review-profile-pic").attr("src", e.target.result).show();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            function validateForm(tabIndex) {
+                let valid = true;
+                let tab = $("#tabs .tab-content").eq(tabIndex);
+
+                tab.find("input, select").each(function() {
+                    let value = $(this).val();
+                    let errorMessage = $(this).siblings(".error");
+
+                    if (value === "") {
+                        errorMessage.show();
+                        valid = false;
+                    } else {
+                        errorMessage.hide();
+                    }
+                });
+
+                if (valid) {
+                    $("#review-name").text($("#name").val());
+                    $("#review-email").text($("#email").val());
+                    $("#review-address").text($("#address").val());
+                    $("#review-city").text($("#city").val());
+                    $("#review-country").text($("#country").val());
+                }
+
+                return valid;
+            }
+        });
+    </script>
+
+</body>
+</html>

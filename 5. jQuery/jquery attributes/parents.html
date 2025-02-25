@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .parents() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight { background-color: yellow; }
+    </style>
+</head>
+<body>
+
+    <div class="grandparent">
+        <div class="parent">
+            <span>This is inside a nested div.</span>
+        </div>
+    </div>
+
+    <button id="highlightParents">Highlight All Parents</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#highlightParents').click(function() {
+                $('span').parents().addClass('highlight');
+            });
+        });
+    </script>
+
+</body>
+</html>

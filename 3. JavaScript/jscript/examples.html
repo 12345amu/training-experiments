@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variable Scope</title>
+</head>
+<body>
+
+    <h2>Open the console to see the output</h2>
+variables
+    <script>
+        // var example
+        function varExample() {
+            var x = 10;
+            console.log("Initial var x:", x);
+            var x = 20; // Redeclaration allowed
+            x = 30; // Update allowed
+            console.log("Updated var x:", x);
+        }
+        varExample();
+    </script>
+
+    <!-- <script>
+        // let example
+        function letExample() {
+            let y = 40;
+            console.log("Initial let y:", y);
+            // let y = 50; //  Error: Cannot redeclare y
+            y = 50; //  Update allowed
+            console.log("Updated let y:", y);
+        }
+        letExample();
+    </script> -->
+
+    <!-- <script>
+        // const example
+        function constExample() {
+            const z = 60;
+            console.log("Constant const z:", z);
+            // z = 70; //  Error: Cannot reassign a const variable
+            // const z = 80; // Error: Cannot redeclare a const variable
+        }
+        constExample();
+    </script> -->
+    <!-- JavaScript Data Types  -->
+    <!-- <script>
+        // 1. Primitive Data Types
+
+        // 1.1 String
+        let str = "Hello, JavaScript!";
+        console.log("String:", str, "Type:", typeof str);
+
+        // 1.2 Number
+        let num = 42;
+        let floatNum = 3.14;
+        console.log("Number (int):", num, "Type:", typeof num);
+        console.log("Number (float):", floatNum, "Type:", typeof floatNum);
+
+        // 1.3 Boolean
+        let isJavaScriptFun = true;
+        console.log("Boolean:", isJavaScriptFun, "Type:", typeof isJavaScriptFun);
+
+        // 1.4 Undefined
+        let notAssigned;
+        console.log("Undefined:", notAssigned, "Type:", typeof notAssigned);
+
+        // 1.5 Null
+        let emptyValue = null;
+        console.log("Null:", emptyValue, "Type:", typeof emptyValue); // Note: typeof null returns "object" (a known JavaScript bug)
+
+        // 2. Non-Primitive (Reference) Data Types
+
+        // 2.1 Object
+        let person = {
+            name: "John Doe",
+            age: 25,
+            isStudent: false
+        };
+        console.log("Object:", person, "Type:", typeof person);
+
+        // 2.2 Array
+        let colors = ["Red", "Green", "Blue"];
+        console.log("Array:", colors, "Type:", typeof colors);
+    </script> -->
+
+    <!-- JavaScript Operators -->
+     <!-- <script>
+        // 1. Arithmetic Operators
+        let a = 10, b = 5;
+        console.log("Arithmetic Operators:");
+        console.log("Addition:", a + b);
+        console.log("Subtraction:", a - b);
+        console.log("Multiplication:", a * b);
+        console.log("Division:", a / b);
+        console.log("Modulus (Remainder):", a % b);
+        console.log("Increment a:", ++a);
+        console.log("Decrement b:", --b);
+
+        // 2. Assignment Operators
+        console.log("\nAssignment Operators:");
+        let x = 20;
+        console.log("Initial x:", x);
+        x += 5; console.log("x += 5:", x);
+        x -= 3; console.log("x -= 3:", x);
+        x *= 2; console.log("x *= 2:", x);
+        x /= 4; console.log("x /= 4:", x);
+        x %= 3; console.log("x %= 3:", x);
+
+        // 3. Comparison Operators
+        console.log("\nComparison Operators:");
+        console.log("10 == '10':", 10 == "10");  // true (loose equality)
+        console.log("10 === '10':", 10 === "10"); // false (strict equality)
+        console.log("10 != 5:", 10 != 5);
+        console.log("10 !== '10':", 10 !== "10");
+        console.log("10 > 5:", 10 > 5);
+        console.log("10 < 5:", 10 < 5);
+        console.log("10 >= 10:", 10 >= 10);
+        console.log("10 <= 9:", 10 <= 9);
+
+        // 4. Logical Operators
+        console.log("\nLogical Operators:");
+        console.log("true && false:", true && false);
+        console.log("true || false:", true || false);
+        console.log("!true:", !true);
+
+        // 5. Bitwise Operators
+        console.log("\nBitwise Operators:");
+        console.log("5 & 1 (AND):", 5 & 1);  // 101 & 001 = 001 -> 1
+        console.log("5 | 1 (OR):", 5 | 1);   // 101 | 001 = 101 -> 5
+        console.log("5 ^ 1 (XOR):", 5 ^ 1);  // 101 ^ 001 = 100 -> 4
+        console.log("~5 (NOT):", ~5);        // Inverts bits
+        console.log("5 << 1 (Left Shift):", 5 << 1);  // 101 << 1 = 1010 -> 10
+        console.log("5 >> 1 (Right Shift):", 5 >> 1); // 101 >> 1 = 10 -> 2
+
+        // 6. Ternary Operator
+        console.log("\nTernary Operator:");
+        let age = 18;
+        let canVote = (age >= 18) ? "Yes" : "No";
+        console.log("Can vote?", canVote);
+
+        // 7. Unary Operators
+        console.log("\nUnary Operators:");
+        let num = 5;
+        console.log("Unary Plus (+num):", +num);
+        console.log("Unary Minus (-num):", -num);
+        console.log("Increment (num++):", num++);
+        console.log("Decrement (--num):", --num);
+        console.log("typeof num:", typeof num);
+        
+        let obj = { name: "Alice", age: 25 };
+        delete obj.age; // Removes property
+        console.log("After delete obj.age:", obj);
+
+        // 8. Type Conversion Operators
+        console.log("\nType Conversion Operators:");
+        let strNum = "123";
+        console.log("String to Number:", Number(strNum));
+        console.log("Number to String:", String(456));
+        console.log("Boolean(0):", Boolean(0)); // false
+        console.log("Boolean(1):", Boolean(1)); // true
+
+    </script> -->
+
+    <!-- <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showConfirm()">Show Confirm</button>
+    <button onclick="showPrompt()">Show Prompt</button>
+
+    <script>
+        // 1. alert() - Displays a simple alert message
+        function showAlert() {
+            alert("This is an alert message!");
+        }
+
+        // 2. confirm() - Asks for confirmation (OK or Cancel)
+        function showConfirm() {
+            let result = confirm("Do you want to continue?");
+            if (result) {
+                alert("You clicked OK!");
+            } else {
+                alert("You clicked Cancel!");
+            }
+        }
+
+        // 3. prompt() - Asks for user input
+        function showPrompt() {
+            let name = prompt("What is your name?");
+            if (name) {
+                alert("Hello, " + name + "!");
+            } else {
+                alert("You didn't enter a name.");
+            }
+        }
+    </script> -->
+    <!-- Conditional Statements in JavaScript -->
+    <!-- <script>
+        // 1. If Statement
+        let age = prompt("Enter your age:");
+        if (age >= 18) {
+            console.log("You are an adult.");
+            alert("You are an adult.");
+        }
+
+        // 2. If-Else Statement
+        let num = prompt("Enter a number:");
+        if (num % 2 === 0) {
+            console.log("Even number");
+            alert("Even number");
+        } else {
+            console.log("Odd number");
+            alert("Odd number");
+        }
+
+        // 3. If-Else If-Else Statement
+        let score = prompt("Enter your score:");
+        if (score >= 90) {
+            console.log("Grade: A");
+            alert("Grade: A");
+        } else if (score >= 75) {
+            console.log("Grade: B");
+            alert("Grade: B");
+        } else {
+            console.log("Grade: C");
+            alert("Grade: C");
+        }
+
+        // 4. Switch Statement
+        let day = prompt("Enter a day of the week:");
+        switch (day.toLowerCase()) {
+            case "monday":
+                console.log("Start of the week!");
+                alert("Start of the week!");
+                break;
+            case "friday":
+                console.log("Weekend is near!");
+                alert("Weekend is near!");
+                break;
+            case "saturday":
+            case "sunday":
+                console.log("It's the weekend!");
+                alert("It's the weekend!");
+                break;
+            default:
+                console.log("It's a regular day.");
+                alert("It's a regular day.");
+        }
+
+        // 5. Loop with Break Statement
+        console.log("Loop with Break:");
+        for (let i = 1; i <= 5; i++) {
+            if (i === 3) {
+                console.log("Breaking the loop at i = 3");
+                break; // Stops the loop when i = 3
+            }
+            console.log("i =", i);
+        }
+
+        // 6. Loop with Continue Statement
+        console.log("Loop with Continue:");
+        for (let i = 1; i <= 5; i++) {
+            if (i === 3) {
+                console.log("Skipping i = 3");
+                continue; // Skips the rest of the code for i = 3
+            }
+            console.log("i =", i);
+        }
+    </script> -->
+    <!-- JavaScript Scope -->
+    <!-- <script>
+        // 1. Global Scope (Accessible anywhere in the script)
+        let globalVar = "I am a global variable";
+
+        function testGlobalScope() {
+            console.log(globalVar); // Accessible inside the function
+        }
+
+        testGlobalScope();
+        console.log(globalVar); // Accessible outside the function
+
+        // 2. Local Scope (Function Scope)
+        function testLocalScope() {
+            let localVar = "I am a local variable";
+            console.log(localVar); // Accessible inside the function
+        }
+
+        testLocalScope();
+        // console.log(localVar); //  Uncaught ReferenceError: localVar is not defined (because it is local)
+
+        // 3. Block Scope (Using let & const inside a block)
+        if (true) {
+            let blockVar = "I am a block-scoped variable";
+            const blockConst = "I am a block-scoped constant";
+            console.log(blockVar); // Accessible inside the block
+            console.log(blockConst); // Accessible inside the block
+        }
+
+        // console.log(blockVar); //  Uncaught ReferenceError: blockVar is not defined (because it is block-scoped)
+        // console.log(blockConst); //  Uncaught ReferenceError: blockConst is not defined (because it is block-scoped)
+
+    </script> -->
+</body>
+</html>

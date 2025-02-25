@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .each() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <ul id="myList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+    </ul>
+
+    <button id="addIndex">Add Index</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#addIndex').click(function() {
+                $('#myList li').each(function(index) {
+                    // Appends index number to each list item
+                    $(this).text(index + 1 + ". " + $(this).text());
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

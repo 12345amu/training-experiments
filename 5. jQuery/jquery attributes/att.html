@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery .attr() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="image2.jpg" alt="Placeholder Image" id="image">
+    
+    <button id="getButton">Get Image Source</button>
+    <button id="setButton">Change Image Source</button>
+
+    <script>
+        $(document).ready(function() {
+            // Get the value of the 'src' attribute when 'Get Image Source' is clicked
+            $('#getButton').click(function() {
+                var srcValue = $('#image').attr('src');
+                alert('Current Image Source: ' + srcValue);
+            });
+
+            // Change the 'src' attribute when 'Change Image Source' is clicked
+            $('#setButton').click(function() {
+                $('#image').attr('src', 'image12.jpg');
+            });
+        });
+    </script>
+</body>
+</html>
