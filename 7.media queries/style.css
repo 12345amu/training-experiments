@@ -524,7 +524,7 @@ h1 {
 
 @media (max-width: 768px) {
     .profile {
-        width: 100%; /* Full width for small screens */
+        width: 90%; /*Full width for small screens */
         text-align: center;
         margin: 0 auto;
         padding: 10px;
