@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars with jQuery</title>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Handlebars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <!-- Link External JavaScript -->
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <!-- Handlebars Template -->
+    <script id="user-template" type="text/x-handlebars-template">
+        <h2>Name: {{name}}</h2>
+        <p>City: {{city}}</p>
+    </script>
+
+    <!-- Placeholder for Rendered Content -->
+    <div id="output"></div>
+
+</body>
+</html>

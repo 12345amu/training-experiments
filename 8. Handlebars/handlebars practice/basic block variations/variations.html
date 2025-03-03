@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Basic Block Variations</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</head>
+<body>
+    <script id="tea-stall-template" type="text/x-handlebars-template">
+        {{#ifStudent}}
+            <p>Welcome, student! Enjoy a free cup of chai!</p>
+        {{else}}
+            <p>Chai costs ₹10 per cup.</p>
+        {{/ifStudent}}
+    </script>
+
+    <div id="output"></div>
+
+    <script src="variations.js"></script>
+</body>
+</html>

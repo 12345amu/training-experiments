@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Block Parameters Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Users and Their Favorite Indian Dishes</h2>
+    <div id="user-container"></div>
+
+    <!-- Handlebars Template -->
+    <script id="user-template" type="text/x-handlebars-template">
+        <ul>
+            {{#each users as |user userId|}}
+                <li>User {{userId}}: {{user.name}} - Favorite Dish: {{user.favoriteDish}}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script src="block_parameters.js"></script>
+
+</body>
+</html>

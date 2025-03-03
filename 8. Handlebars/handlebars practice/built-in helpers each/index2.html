@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Multiple Data Sets</title>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Handlebars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <!-- Link External JavaScript -->
+    <script src="script2.js"></script>
+</head>
+<body>
+
+    <!-- Handlebars Template -->
+    <script id="data-template" type="text/x-handlebars-template">
+        <h1>Users List</h1>
+        {{#each users}}
+        <div class="user-card">
+            <h2>Name: {{name}}</h2>
+            <p>Age: {{age}}</p>
+
+            <h3>Address:</h3>
+            <p>Street: {{address.street}}</p>
+            <p>City: {{address.city}}</p>
+            <p>Pincode: {{address.pincode}}</p>
+            
+        </div>
+        {{/each}}
+
+        <h1>Company Details</h1>
+        {{#each companies}}
+        <div class="company-card">
+            <h2>Company: {{name}}</h2>
+            <p>Location: {{location}}</p>
+            
+            <h3>Employees:</h3>
+            <ul>
+                {{#each employees}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            
+        </div>
+        {{/each}}
+    </script>
+
+    <!-- Placeholder for Rendered Content -->
+    <div id="output"></div>
+
+</body>
+</html>

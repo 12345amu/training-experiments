@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Hash Arguments Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Fruit List</h2>
+    <div id="fruit-container"></div>
+
+    <!-- Handlebars Template -->
+    <script id="fruit-template" type="text/x-handlebars-template">
+        {{#fruitList fruits id="fruit-list" class="highlighted"}}
+            {{fruitName}}
+        {{/fruitList}}
+    </script>
+
+    <script src="hash_arguments.js"></script>
+
+</body>
+</html>

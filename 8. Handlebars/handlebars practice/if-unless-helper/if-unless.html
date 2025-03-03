@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars If & Unless Helpers</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</head>
+<body>
+    <script id="guest-template" type="text/x-handlebars-template">
+        <h2>Wedding Guest List</h2>
+        <ul>
+            {{#each guests}}
+                <li>
+                    {{name}} - {{relation}} 
+                    {{#if isFamily}}
+                        <strong>(VIP Guest)</strong>
+                    {{/if}}
+                    {{#unless isFamily}}
+                        <em>(Regular Guest)</em>
+                    {{/unless}}
+                </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <div id="output"></div>
+
+    <script src="if-unless.js"></script>
+</body>
+</html>

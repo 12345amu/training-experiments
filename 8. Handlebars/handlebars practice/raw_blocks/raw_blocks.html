@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Raw Blocks Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Example of Handlebars Raw Blocks</h2>
+    <div id="raw-container"></div>
+
+    <!-- Handlebars Template -->
+    <script id="raw-template" type="text/x-handlebars-template">
+        <h3>Unprocessed Handlebars Code:</h3>
+        <pre>
+            {{{{raw}}}}
+                {{name}} loves {{dish}}
+            {{{{/raw}}}}
+        </pre>
+    </script>
+
+    <script src="raw_blocks.js"></script>
+
+</body>
+</html>

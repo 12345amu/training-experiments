@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars Simple Example</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Handlebars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <!-- External JavaScript -->
+    <script src="script4.js "></script>
+</head>
+<body>
+
+    <!-- Handlebars Template -->
+    <script id="template" type="text/x-handlebars-template">
+        <h1>Bank Balance</h1>
+
+        <p>Name: {{user.name}}</p>
+
+        {{#ifIncludeZero user.balance}}
+            <p>Balance: ₹{{user.balance}}</p>
+        {{else}}
+            <p>No balance available</p>
+        {{/ifIncludeZero}}
+    </script>
+
+    <!-- Placeholder for Output -->
+    <div id="output"></div>
+
+</body>
+</html>
