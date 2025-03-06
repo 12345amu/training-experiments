@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Books Available</h1>
+    <ul>
+        <% books.forEach(book => { %>
+            <li>
+                <a href="/books/<%= book.id %>"><%= book.title %></a> by <%= book.author %>
+            </li>
+        <% }); %>
+    </ul>
+
+    <h2>Add a New Book</h2>
+    <form action="/books/add" method="POST">
+        <input type="text" name="title" placeholder="Book Title" required>
+        <input type="text" name="author" placeholder="Author" required>
+        <button type="submit">Add Book</button>
+    </form>
+</body>
+</html>
